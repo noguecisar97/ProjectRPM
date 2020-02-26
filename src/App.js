@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import {Menubar} from 'primereact/menubar';
+import {withRouter} from 'react-router-dom';
+    
+class App extends Component {
+  render() {
+    const menuitems = [
+      {
+         label:'Home',
+         icon:'pi pi-fw pi-home',
+         command:() => this.props.history.push('/')
+      },
+      {
+         label:'Perfil',
+         icon:'pi pi-fw pi-user',
+         command:() => this.props.history.push('/perfil')
+      }
+   ];
+    return (
+      <div className="App">
+        <Menubar model={menuitems}/>        
+        <div id="main">
+            <main>
+                <div className="content" id="content">
+                    {this.props.children}                   
+                </div>                 
+            </main>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
+export default  withRouter(App);

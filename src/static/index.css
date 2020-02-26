@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#root{
+    background-image: url(./2.png);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+#root h1{
+    padding: 50px 0px;
+    color: #f0f0f0;
+    text-align: center;
+}
