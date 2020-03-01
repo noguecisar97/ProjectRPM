@@ -4,6 +4,7 @@ import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import XLSX from 'xlsx';
 import { make_cols } from './MakeColumns';
 import { SheetJSFT } from './types';
+import './excel.css'
  
 class ExcelReader extends Component {
   constructor(props) {
@@ -16,7 +17,18 @@ class ExcelReader extends Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
- 
+
+  desativar(){
+    setTimeout(() => {
+      const botaoPerfil = document.querySelectorAll('.p-menuitem')
+      const perfilBotao = botaoPerfil[1]
+      const perfilBotaoMain = botaoPerfil[0]
+    
+      perfilBotao.setAttribute('style','display:none')
+      perfilBotaoMain.setAttribute('style','display:none')
+    }, 10);
+  }
+    
   handleChange(e) {
     const files = e.target.files;
     console.log(files)
@@ -24,7 +36,7 @@ class ExcelReader extends Component {
     if (files && files[0]) this.setState({ file: files[0] });
     console.log(files)
   };
- 
+  
   handleFile() {
     /* Boilerplate to set up FileReader */
     const reader = new FileReader();
@@ -41,9 +53,8 @@ class ExcelReader extends Component {
       const data = XLSX.utils.sheet_to_json(ws);
       /* Update state */
       this.setState({ data: data, cols: make_cols(ws['!ref']) }, () => {
-        console.log(JSON.stringify(this.state.data, null, 2));
-      });
- 
+        localStorage.setItem('base',JSON.stringify(this.state.data, null, 2));        
+      }); 
     };
  
     if (rABS) {
@@ -55,16 +66,16 @@ class ExcelReader extends Component {
  
   render() {
     return (
-      <div>
-        <label htmlFor="file">Upload an excel to Process Triggers</label>
+      <div id="up" onLoad={this.desativar()}>
+        <label htmlFor="file">Faça Update de seu Banco de Dados</label>
         <br />
-        <input type="file" className="form-control" id="file" accept={SheetJSFT} onChange={this.handleChange} />
+        <input type="file" className="form-control estilo" id="file" accept={SheetJSFT} onChange={this.handleChange} />
         <br />
         <input type='submit' 
-          value="Process Triggers"
+          value="Importar para o Site"
           onClick={this.handleFile} />
-          </div>
-      
+          
+          </div>     
     )
   }
 }

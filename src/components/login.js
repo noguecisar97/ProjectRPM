@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import './index.css'
-import axios from 'axios'
+import { baseElementEvents } from 'office-ui-fabric-react';
 
 class Login extends Component{
     desativar(){
@@ -8,24 +8,30 @@ class Login extends Component{
         const perfilBotao = botaoPerfil[1]
         
         perfilBotao.setAttribute('style','display:none')
+        botaoPerfil[2].setAttribute('style','display:none')
     }
 
     logado(){
-        axios.get('http://127.0.1.1:8081')
-            .then(function(response){
-            localStorage.setItem('mysql',JSON.stringify(response.data))   
-            console.log(response.data)   
-            })
-            .catch(function(error){
-                console.warn(error)
-            });
-        
+               
         setTimeout(function(){
-            const valor = document.querySelector('#login-rede').value  
-            localStorage.setItem('search',JSON.stringify(valor))
-            window.location = '/perfil'
-        },3000)
-        
+            const valorD = document.querySelector('#login-rede').value 
+            const valor = valorD.toUpperCase()
+            const base = JSON.parse(localStorage.getItem('base'))
+            const baseDado = []
+            const dados = Array.from(base)   
+            const perfil = []
+            dados.map(dado => {
+                if(dado.Nome === valor){                    
+                    perfil.push(dado)                    
+                }
+                baseDado.push(dado)
+            })   
+            if(perfil[0]){
+                localStorage.setItem('perfil', JSON.stringify(perfil)) 
+                window.location = '/perfil'
+            }            
+           
+        },100)        
     }
     
     render(){

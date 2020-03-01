@@ -8,6 +8,6 @@
     min-height: 100vh;
 }
 
-#root div:nth-child(2){
+#root #main{
     padding-top: 150px;
 }

@@ -1,0 +1,31 @@
+#up{
+    width: 100vw;
+    text-align: center;
+    background-color: #0008;
+    height: 200px;
+}
+
+input#file.estilo{
+    font-size: 1.4rem;
+    color: #28f5b9;
+    background-color: #0d0b0e;
+    width: 500px;
+    margin-top: 40px;
+}
+
+label{
+    font-size: 1.2rem;
+    color: #28f5be;
+    font-weight: 700;
+}
+
+input[type=submit]{
+    margin-top: 50px;
+    color: #f0f0f0;
+    border: solid 2px #28f5be;
+    border-radius: 10px;
+    background-color: #525299;
+    height: 50px;
+    width: 500px;
+    font-size: 1.5rem;
+}

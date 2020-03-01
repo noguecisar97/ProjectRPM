@@ -21,7 +21,7 @@ class App extends Component {
       {
         label:'Excel',
         icon: 'pi pi-fw pi-user',
-        comand: ()=> this.props.history.push('/excel')
+        command: ()=> this.props.history.push('/excel')
       }
    ];
     return (
