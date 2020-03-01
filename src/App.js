@@ -17,6 +17,11 @@ class App extends Component {
          label:'Perfil',
          icon:'pi pi-fw pi-user',
          command:() => this.props.history.push('/perfil')
+      },
+      {
+        label:'Excel',
+        icon: 'pi pi-fw pi-user',
+        comand: ()=> this.props.history.push('/excel')
       }
    ];
     return (

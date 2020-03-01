@@ -32,10 +32,10 @@ class Login extends Component{
         return (
             <div id='center'>
                 <div className="conted" onLoad={this.desativar}>                    
-                    <img src="1.png" alt="Neobpo SDK" title="Neobpo SDK" /><br />
-                    Usuário: <input id='login-rede' type='text' placeholder="Digite seu login..." />
+                    <img src="3.png" alt="fAMILIA" title="Grupo Kimetsu" /><br />
+                    Demon Slayer: <input id='login-rede' type='text' placeholder="Digite seu nome..." />
                     <input className="button-acess" type="button" onClick={this.logado} value="Acessar"/> 
-                </div>                 
+               </div>                 
             </div>  
         ) 
     }

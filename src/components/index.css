@@ -9,31 +9,32 @@
 }
 
 .conted{
-    width: 350px;
-    height: 400px;
+    width: 450px;
+    height: 550px;
     background-color: #0d0b0e;
     color: #f5f5f5;
     padding: 20px;
     border: solid 1px #28a3f5;
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .conted img{
-    margin-left: 55px;
+    margin-left: 50px;
     margin-top: 10px;
     margin-bottom: 20px;
-    width: 200px;
+    width: 320px;
 }
 
 .conted input{
     width: calc(100% - 10px);
     background-color: #17171b;
-    height: 40px;
+    height: 60px;
     padding: 0 0 0 10px;
     border: solid 1px #28a3f5;
     border-radius: 10px;
     color: #f5f5f5;
+    font-size: 1.4rem;
     margin-bottom: 10px;    
 }
 .conted input.button-acess{

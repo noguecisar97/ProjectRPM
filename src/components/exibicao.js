@@ -15,10 +15,12 @@ export default class Exibicao extends Component{
             const user = JSON.parse(localStorage.getItem('search'))
             const elem = document.querySelector('#nome')
             elem.innerHTML = `<div>
-                    <h1>${user.Nome}</h1>
-                    <h2>${user.Area}</h2>
-                    <h3>${user.Matricula}</h3>
+                    <h1>${user.Nome}</h1>                   
                 </div>`
+
+            if(!localStorage.getItem('search')){
+                window.location = 'http://localhost:3000/'
+            }  
         }, 2000);
     }
 
