@@ -53,8 +53,9 @@ class ExcelReader extends Component {
       const data = XLSX.utils.sheet_to_json(ws);
       /* Update state */
       this.setState({ data: data, cols: make_cols(ws['!ref']) }, () => {
-        localStorage.setItem('base',JSON.stringify(this.state.data, null, 2));        
+        localStorage.setItem('base',JSON.stringify(this.state.data, null, 2));             
       }); 
+      document.location = '/'
     };
  
     if (rABS) {
@@ -62,6 +63,7 @@ class ExcelReader extends Component {
     } else {
       reader.readAsArrayBuffer(this.state.file);
     };
+
   }
  
   render() {
